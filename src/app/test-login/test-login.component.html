@@ -1,0 +1,90 @@
+<div class="jumbotron"
+     style="background-image:url(https://s3.us-east-2.amazonaws.com/popcornbank/assets/Colorful-balloons-bank-banner.jpg);
+     background-position: 0% 25%;
+     background-size: cover;
+     background-repeat: no-repeat;
+     color: black; ">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-5 col-md-4 hidden-sm hidden-xs pull-left" style="color:white; background:#ffc500; opacity: 0.95; font-family: san-serif">
+        <div>
+          <h1>Popcorn Bank</h1>
+          <h2>Banking is like eating Popcorn.</h2>
+          <h2>Having fun with the people around you. </h2>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-8 col-xs-8 pull-right" style="background: white">
+          <h3>Sign In</h3>
+          <hr/>
+          <form [formGroup]="userForm" >
+
+
+            <label>User Name</label>
+            <br>
+            <input required formControlName="userId" id="userId" (focus)="this.userNameNotExistOrWrongPassword=false"  >
+            <br>
+            <span style="color:red;" *ngIf="this.userNameNotExistOrWrongPassword">User Name does not exist or wrong password, please try again.</span>
+            <span style="color:red" *ngIf="(userId.dirty || userId.touched) && userId.errors">
+                User Name can not be blank.</span>
+            <br><br>
+            <label>Password</label>
+            <br>
+            <input type="password" formControlName="password" (focus)="this.userNameNotExistOrWrongPassword=false" >
+            <br>
+            <span style="color:red" *ngIf="(password.dirty || password.touched) && password.errors">
+                User Name can not be blank.</span>
+            <br><br>
+            <button class="btn btn-default btn-block" (click)="!userId.errors && !password.errors && login()" >Sign in</button>
+            <br>
+          </form>
+          <hr/>
+          <div>New to Popcorn Bank? </div>
+          <a routerLink="/openAnAccount_step1" routerLinkActive="active" class="btn btn-default btn-block">Open an account now</a>
+          <br/>
+          <div style="width:100%; text-align:center">or you can login with a test account</div>
+          <div style="width:100%; text-align:center"><b> username: popcorn, password: popcorn </b></div>
+          <br/>
+          <div style="width:100%; text-align:center">Enjoy your popcorn! </div>
+          <br>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="background:black">
+<div class="jumbotron" style="background:white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+            <img src="https://s3.us-east-2.amazonaws.com/popcornbank/assets/eating_popcorn2.png" alt="Lights" style="width:100%">
+            <div class="caption">
+              <p>Endless Fun </p>
+              Deposit checks into your Popcorn Bank account from anywhere, anytime. Saves time, easy, and fun.
+            </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="https://s3.us-east-2.amazonaws.com/popcornbank/assets/corn-field.jpg" alt="Lights" style="width:100%">
+          <div class="caption">
+            <p>Happy Bonus </p>
+            Open a Complete Checking or Complete Checking Plus account and get up to $1,000,000 popcorn coins. 
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img src="https://s3.us-east-2.amazonaws.com/popcornbank/assets/kid_eating_popcorn.jpg" alt="Lights" style="width:100%">
+          <div class="caption">
+            <p>What a Great Show </p>
+            Another Great Movie account with another Great Rate from Popcorn Bank.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>

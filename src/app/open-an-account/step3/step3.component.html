@@ -1,0 +1,42 @@
+<div class="jumbotron">
+  <div class="wrapper">
+    <div class="arrow-steps clearfix">
+      <div class="step"> <span> Step 1 : User Name and Password</span> </div>
+      <div class="step"> <span>Step 2 : Login</span> </div>
+      <div class="step current"> <span> Step 3 :  User Information</span> </div>
+      <div class="step"> <span>Step 4 : Complete</span> </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="jumbotron">
+      <form [formGroup]="userInfoForm">
+        <label>First Name</label><br>
+        <input formControlName="firstname">
+        <br>
+        <label>Last Name</label><br>
+        <input formControlName="lastname">
+        <br>
+        <label>Email (necessary)</label><br>
+        <input formControlName="email"> <span style="color:red" *ngIf="(email.dirty || email.touched) && email.errors">
+                Email can not be blank. </span>
+        <br>
+        <label>Address</label><br>
+        <input formControlName="address">
+        <br>
+        <label>City</label><br>
+        <input formControlName="city">
+        <br>
+        <label>State</label><br>
+        <input formControlName="state">
+        <br>
+        <label>Zip Code</label><br>
+        <input type="number" formControlName="zipcode">
+        <br><br>
+        <button class="btn btu-defalut" (click)="addUserInfo()">Add User Information</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+

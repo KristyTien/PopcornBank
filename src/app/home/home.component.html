@@ -1,0 +1,24 @@
+<div class="container">
+  <h3>Welcome, {{userinfo? userinfo.firstname:null}}</h3>
+  <div class="jumbotron">
+    <h3>Accounts</h3>
+    <hr/>
+    <div class="container">
+      <p>Checking Account</p>
+      <hr/>
+      <p>Checking Account - {{this.userinfo ? this.userinfo.checking_account:null }}</p>
+      <p>Checking Account Balance - {{this.checkingInfo ? this.checkingInfo.balance : 0 | currency: 'USD': true}}</p>
+      <a routerLink="/checking_account" routerLinkActive="active">Most Recent Transactions</a>
+    </div>
+    <hr/>
+    <div class="container">
+    <p>Saving Account</p>
+    <hr/>
+    <p>Saving Account - {{this.userinfo ? this.userinfo.saving_account : null}}</p>
+    <p>Saving Account Balance - {{this.savingInfo ? this.savingInfo.balance:0 | currency: 'USD': true}}</p>
+    <a routerLink="/saving_account" routerLinkActive="active">Most Recent Transactions</a>
+    <hr/>
+    </div>
+    <a routerLink="/transfer" routerLinkActive="active" >Make a Transfer</a>
+  </div>
+</div>

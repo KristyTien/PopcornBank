@@ -1,0 +1,35 @@
+<div class="container" >
+  <div class="jumbotron" style="min-height: 500px">
+    <div class="container">
+      <h3>Withdraw</h3>
+      <form [formGroup]="withdrawForm">
+        <label>Select Account</label><br>
+        <select formControlName="accountnumber">
+          <option [value]="this.userinfo.checking_account">Checking Account: {{this.userinfo ? this.userinfo.checking_account : null}}</option>
+          <option [value]="this.userinfo.saving_account">Saving Account: {{this.userinfo ? this.userinfo.saving_account : null}}</option>
+        </select>
+        <br>
+        <span>Available amount: </span>
+        <span *ngIf="accountnumber.value==this.userinfo.checking_account">
+          {{this.checkingInfo ? this.checkingInfo.balance : 0 | currency: 'USD': true}}</span>
+        <span *ngIf="accountnumber.value==this.userinfo.saving_account">
+          {{this.savingInfo ? this.savingInfo.balance : 0 | currency: 'USD': true}}</span>
+        <br>
+        <label>Amount</label>
+        <br>
+        <input type="number" formControlName="amount" (keyup)="checkbalance()" />
+        <br>
+        <br>
+        <span *ngIf="this.over" style="color:red">You don't have enough money to withdraw in your selected account. </span>
+        <br>
+        <button class="btn btn-success" (click)=" !this.over && withdraw()">Withdraw</button>
+      </form>
+    </div>
+    <div *ngIf="this.success">
+    <br><br>
+      <h3>Your Cash is ready!</h3>
+      <br>
+    <img *ngIf="this.success" src="https://s3.amazonaws.com/msi-final-135/money.gif">
+    </div>
+  </div>
+</div>

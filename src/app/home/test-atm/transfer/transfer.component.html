@@ -1,0 +1,39 @@
+<div class="container" >
+  <div class="jumbotron" style="min-height: 500px">
+    <div class="container">
+      <h3>Transfer between Linked Account</h3>
+      <form [formGroup]="transferForm">
+        <label>From</label><br>
+        <select formControlName="fromaccount">
+          <option [value]="this.userinfo.checking_account">Checking Account: {{ this.userinfo ? this.userinfo.checking_account:null}}</option>
+          <option [value]="this.userinfo.saving_account">Saving Account: {{this.userinfo ? this.userinfo.saving_account : null}}</option>
+        </select>
+        <br>
+        <label>To</label><br>
+        <select formControlName="toaccount">
+          <option *ngIf="fromaccount.value != this.userinfo.checking_account" [value]="this.userinfo.checking_account">Checking Account: {{ this.userinfo ?  this.userinfo.checking_account : null}}</option>
+          <option *ngIf="fromaccount.value != this.userinfo.saving_account" [value]="this.userinfo.saving_account">Saving Account: {{this.userinfo ?  this.userinfo.saving_account: null}}</option>
+        </select>
+        <br>
+        <span>Available amount: </span>
+        <span *ngIf="fromaccount.value==this.userinfo.checking_account">
+          {{this.checkingInfo? this.checkingInfo.balance: 0 | currency: 'USD': true}}</span>
+        <span *ngIf="fromaccount.value==this.userinfo.saving_account">
+          {{this.savingInfo ? this.savingInfo.balance: 0 | currency: 'USD': true}}</span>
+        <br>
+        <label>Transfer Amount</label>
+        <br>
+        <input type="number" formControlName="amount" />
+        <br>
+        <br>
+        <button class="btn btn-success" (click)=" transfer()">Make transfer</button>
+      </form>
+    </div>
+    <div *ngIf="this.success">
+      <br><br>
+      <h3>Transfer Completed.</h3>
+      <br>
+      <img *ngIf="this.success" src="https://s3.amazonaws.com/msi-final-135/gif-F-22-sandbox-302257.gif">
+    </div>
+  </div>
+</div>

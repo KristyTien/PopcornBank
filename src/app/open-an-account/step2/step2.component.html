@@ -1,0 +1,26 @@
+<div class="jumbotron">
+  <div class="wrapper">
+    <div class="arrow-steps clearfix">
+      <div class="step"> <span> Step 1 : User Name and Password</span> </div>
+      <div class="step current"> <span>Step 2 : Login</span> </div>
+      <div class="step"> <span> Step 3 :  User Information</span> </div>
+      <div class="step"> <span>Step 4 : Complete</span> </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="jumbotron">
+      <form [formGroup]="userForm">
+        <label>User Id</label>
+        <input formControlName="userId" id="userId"  >
+        <br><br>
+        <label>Password</label>
+        <input type="password" formControlName="password" >
+        <br><br>
+        <button class="btn btn-default" (click)="login()" >Log in</button>
+        <br>
+      </form>
+    </div>
+  </div>
+
+</div>

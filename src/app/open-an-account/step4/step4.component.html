@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="arrow-steps clearfix">
+      <div class="step"> <span> Step 1 : User Name and Password</span> </div>
+      <div class="step"> <span>Step 2 : Login</span> </div>
+      <div class="step"> <span> Step 3 :  User Information</span> </div>
+      <div class="step current"> <span>Step 4 : Complete</span> </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="jumbotron">
+<div class="container">
+  <div>Hello {{userinfo ? userinfo.firstname: null}}</div>
+  <div>Thanks for choosing Popcorn Bank! </div>
+  <div>Your accounts have been successfully opened! </div>
+  <div>
+    Your checking account is {{userinfo? userinfo.checking_account: null}}
+  </div>
+  <div>
+    Your saving account is {{userinfo? userinfo.saving_account:null}}
+  </div>
+  <div> <a routerLink="/user_home" routerLinkActive="active">
+    You can click here to check your accounts!</a> </div>
+    </div>
+  </div>
+</div>

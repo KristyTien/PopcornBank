@@ -1,0 +1,72 @@
+<head>
+  <title>hahaha</title>
+</head>
+<nav style="background: #333; text-align: right; padding-right: 0.5cm;">
+    <a style="color:#fff;cursor:pointer" (click)="openAnAccount()">Open an Account</a>
+    <a *ngIf="(this.authService.loggedIn | async)" style="color:#fff;cursor:pointer;padding-left: 0.5cm" (click)="logOut()">
+      Log out</a>
+</nav>
+<nav style="background:linear-gradient(#c21500, #ffc500);
+height:70px">
+  <!--background:linear-gradient(180deg,#96c93d,#00b3f0 18%,#0066b3 77%,#004985);-->
+  <a routerLink="/login" routerLinkActive="active">
+      <img style="height:70px;" src="https://s3.us-east-2.amazonaws.com/popcornbank/assets/popcorn_bank_logo_grey.png" />
+  </a>
+</nav>
+<ng2-slim-loading-bar></ng2-slim-loading-bar>
+<nav style="margin-bottom: 0px" class="navbar navbar-default" *ngIf="(this.authService.loggedIn | async)">
+  <ul class="nav navbar-nav">
+    <li><a routerLink="/user_home" routerLinkActive="active">Account </a></li>
+    <li><a routerLink="/transfer" routerLinkActive="active" >Transfer</a></li>
+    <li><a routerLink="/statement" routerLinkActive="active">Statement</a></li>
+    <li><a routerLink="/test_atm" routerLinkActive="active">Test ATM</a></li>
+  </ul>
+</nav>
+<nav style="margin-bottom: 0px" class="navbar navbar-default" *ngIf="!(this.authService.loggedIn | async)">
+  <ul class="nav navbar-nav">
+    <li><a href="https://github.com/KristyTien" target="_blank">GitHub Repository  </a></li>
+    <li><a href="https://www.linkedin.com/in/kristy-tien">LinkedIn</a></li>
+    <li><a href="https://s3.us-east-2.amazonaws.com/popcornbank/resume/Chih-Chin+(Kristy)+Tien+Resume.pdf" target="_blank">Resume</a></li>
+    <li><a>Contact me @ ct2721@columbia.edu</a></li>
+  </ul>
+</nav>
+
+
+<router-outlet></router-outlet>
+
+<footer class="footer-bottom" style="background:#333;  bottom:0px; margin-bottom: -32000px;">
+  <div class="container-fluid">
+    <a>
+      <img style="height:70px;" src="https://s3.us-east-2.amazonaws.com/popcornbank/assets/popcorn_bank_logo_grey.png" />
+    </a>
+    <div class="container-fluid" style="color:#fff">
+      <!-- need special 2 up list when not .list-inline -->
+      <ul class="list-xs-twocol list-inline copyright copyright-columns">
+        <li style="padding-top:0px;"><b id="copyrightDate">© <span class="br_year">2019</span> popcorn Bank</b></li>
+        <li><b style="color:#ffc500">Author: Kristy (Chih-Chin) Tien </b></li>
+        <li><a style="color:#ffc500" href="https://github.com/KristyTien" target="_blank" ><b>GitHub Repo</b></a></li>
+        <li><a style="color:#ffc500" href="https://www.linkedin.com/in/kristy-tien" target="_blank" ><b>LinkedIn</b></a></li>
+        <li><a style="color:#ffc500" href="https://s3.us-east-2.amazonaws.com/popcornbank/resume/Chih-Chin+(Kristy)+Tien+Resume.pdf" target="_blank" ><b>Resume</b></a></li>
+      </ul>
+      <ul class="list-xs-twocol list-inline copyright copyright-columns">
+        
+      </ul>
+    </div>
+    <div class="col-xs-12 footerDisclaimer" style="color:#fff">
+      <p>
+        <small>
+          popcornBank.com provides information about and access to accounts and financial services provided by popcorn Bank, N.A. and its affiliates in the United States and its territories.
+          Terms, conditions and fees for accounts, products, programs and services are subject to change. Not all accounts, products, and services as well as pricing described here are available in all jurisdictions
+          or to all customers. Your country of citizenship, domicile, or residence, if other than the United States, may have laws, rules, and regulations that govern or affect your application for and use of our
+          accounts, products and services, including laws and regulations regarding taxes, exchange and/or capital controls that you are responsible for following.
+        </small>
+      </p>
+      <br>
+      <p>
+        <small>
+          The products, account packages, promotional offers and services described in this website may not apply to all customers.Terms apply.
+        </small>
+      </p>
+    </div>
+  </div>
+</footer>

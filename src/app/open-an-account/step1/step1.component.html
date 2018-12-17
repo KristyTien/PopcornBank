@@ -1,0 +1,35 @@
+<div class="jumbotron">
+  <div class="wrapper">
+    <div class="arrow-steps clearfix">
+      <div class="step current"> <span> Step 1 : User Name and Password</span> </div>
+      <div class="step"> <span>Step 2 : Login</span> </div>
+      <div class="step"> <span> Step 3 :  User Information</span> </div>
+      <div class="step"> <span>Step 4 : Complete</span> </div>
+    </div>
+  </div>
+  <div class="jumbotron">
+    <div class="container">
+      <form [formGroup]="registerForm">
+        <div>
+          <label>User Name</label><br>
+          <input formControlName="userId" id="userId" (focus)="this.registerResult=true">
+          <span style="color:red" *ngIf="!this.registerResult">   This User Name has already be taken. Please try another one. </span>
+        </div>
+        <div>
+          <label>Password</label><br>
+          <input type="password" formControlName="password" >
+        </div>
+        <div>
+          <label>Re enter Password</label><br>
+          <!--add validation here-->
+          <input formControlName="rePassword" type="password" >
+          <span *ngIf="(rePassword.dirty || rePassword.touched) && !(rePassword.value == password.value) " style="color:red" >   Password does not match. </span>
+        </div>
+        <br>
+        <button class="btn btn-default" (click)="(rePassword.value == password.value) && register({})" >Create your account</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="jumbotron">
+    <div class="container">
+      <h3>Account Details</h3>
+      <hr/>
+      <div class="contianer">
+        <div class="panel">
+          Saving Account {{this.savingInfo.id}}
+        </div>
+        <div class="container">
+          <p style="float: left;"> Available: </p>
+          <p style="float: right;"> {{ this.savingInfo.balance | currency: 'USD': true}} </p>
+        </div>
+        <div class="container">
+          <table class="table table-striped table-dark">
+            <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Category</th>
+            </tr>
+            </thead>
+            <tbody *ngFor="let sa of savingActivity">
+            <td>{{sa.timeStamp}}</td>
+            <td>{{sa.description}}</td>
+            <td>{{sa.amount}}</td>
+            <td>{{sa.category}}</td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
